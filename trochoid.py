@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-This file is for draw outer/inner trocoids
+This file is for draw outer/inner trochoids
 """
 import math
 import numpy as np
@@ -70,6 +70,8 @@ def polygon(n, r, cx=0.0, cy=0.0, orient=0, ax=None, *args, **kwargs):
         center x-position of the circumcircle
     cy :
         center y-position of the circumcircle
+    orient: double
+        orientation of a polygon
 
     Returns
     -------
@@ -78,7 +80,7 @@ def polygon(n, r, cx=0.0, cy=0.0, orient=0, ax=None, *args, **kwargs):
     y : array_like
         vertex y-position
     """
-    theta = np.linspace(0 + orient, 2 * np.pi + orient, num=n)
+    theta = np.linspace(0 + orient, 2 * np.pi + orient, num=n + 1)
     x = r * np.cos(theta) + cx
     y = r * np.sin(theta) + cy
     return (x, y)
@@ -222,6 +224,7 @@ def trochoid(px, py, rm, rd, right=True, rmax=None,
         y[i] = p_d.item(1)
 
     return (x, y)
+
 
 if __name__ == '__main__':
     import matplotlib.pyplot as plt
