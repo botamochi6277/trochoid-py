@@ -20,7 +20,9 @@ def draw(
     x, y = trochoid.ctrochoid(rc, rm, rd, num=num, outer=outer)
     ax.plot(x, y)
     ax.set_aspect('equal', 'box')
-
+    ax.set_title(
+        f"{shape}-{rc:0.2f}-{rm:0.2f}-{rd:0.2f}"
+    )
     plt.savefig(output)
 
 
