@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "trochoid"
+version = "0.1.0"
+description = ""
+authors = ["botamochi6277 <botamochi6277@icloud.com>"]
+license = "MIT License"
+readme = "README.md"
+packages = [{ include = "trochoid", from = "src" }]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+matplotlib = "^3.8.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

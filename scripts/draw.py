@@ -1,12 +1,9 @@
 import argparse
-from typing import List
-
 import matplotlib.pyplot as plt
-import trochoid
-
+from trochoid import trochoid
 
 def draw(
-    figsize: List[int],
+    figsize: list[int],
     output: str,
     shape: str,
     rc: float,

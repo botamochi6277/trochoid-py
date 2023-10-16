@@ -226,61 +226,61 @@ def trochoid(px, py, rm, rd, right=True, rmax=None,
     return (x, y)
 
 
-if __name__ == '__main__':
-    import matplotlib.pyplot as plt
-    plt.style.use('seaborn-colorblind')
-    plt.style.use('seaborn-whitegrid')
-    plt.rcParams['figure.figsize'] = 600 / 72, 600 / 72
-    plt.rcParams["font.size"] = 16
+# if __name__ == '__main__':
+#     import matplotlib.pyplot as plt
+#     plt.style.use('seaborn-colorblind')
+#     plt.style.use('seaborn-whitegrid')
+#     plt.rcParams['figure.figsize'] = 600 / 72, 600 / 72
+#     plt.rcParams["font.size"] = 16
 
-    fig = plt.figure()
+#     fig = plt.figure()
 
-    # Hypocycloid & Epicycloid
-    fig.add_subplot(2, 2, 1)
-    x, y = polygon(64, 1)
-    fig.axes[0].plot(x, y)
-    x, y = ctrochoid(1, 1 / 6.0, 1 / 6.0, num=400)
-    fig.axes[0].plot(x, y)
-    x, y = ctrochoid(1, 1 / 6.0, 1 / 6.0, outer=False, num=400)
-    fig.axes[0].plot(x, y)
-    fig.axes[0].set_title('Hypocycloid & Epicycloid')
-    fig.axes[0].set_aspect('equal', 'box')
+#     # Hypocycloid & Epicycloid
+#     fig.add_subplot(2, 2, 1)
+#     x, y = polygon(64, 1)
+#     fig.axes[0].plot(x, y)
+#     x, y = ctrochoid(1, 1 / 6.0, 1 / 6.0, num=400)
+#     fig.axes[0].plot(x, y)
+#     x, y = ctrochoid(1, 1 / 6.0, 1 / 6.0, outer=False, num=400)
+#     fig.axes[0].plot(x, y)
+#     fig.axes[0].set_title('Hypocycloid & Epicycloid')
+#     fig.axes[0].set_aspect('equal', 'box')
 
-    # Hypotrochoid & Epitrochoid
-    fig.add_subplot(2, 2, 2)
-    x, y = polygon(64, 1)
-    fig.axes[1].plot(x, y)
-    x, y = ctrochoid(1, 1 / 6.0, 1.5 / 6.0, num=400)
-    fig.axes[1].plot(x, y)
-    x, y = ctrochoid(1, 1 / 6.0, 1.5 / 6.0, outer=False, num=400)
-    fig.axes[1].plot(x, y)
-    fig.axes[1].set_title('Hypotrochoid & Epitrochoid')
-    fig.axes[1].set_aspect('equal', 'box')
+#     # Hypotrochoid & Epitrochoid
+#     fig.add_subplot(2, 2, 2)
+#     x, y = polygon(64, 1)
+#     fig.axes[1].plot(x, y)
+#     x, y = ctrochoid(1, 1 / 6.0, 1.5 / 6.0, num=400)
+#     fig.axes[1].plot(x, y)
+#     x, y = ctrochoid(1, 1 / 6.0, 1.5 / 6.0, outer=False, num=400)
+#     fig.axes[1].plot(x, y)
+#     fig.axes[1].set_title('Hypotrochoid & Epitrochoid')
+#     fig.axes[1].set_aspect('equal', 'box')
 
-    # Trochoid on Epitrochoid
-    fig.add_subplot(2, 2, 3)
-    x0, y0 = polygon(64, 1)
-    fig.axes[2].plot(x0, y0)
-    x1, y1 = ctrochoid(rc=1, rm=1 / 6, rd=0.8 * 1 /
-                       6, num=1024, outer=False)
-    fig.axes[2].plot(x1, y1)
-    m = 6
-    n = 12 / m  # num. rotation of the rolling circle.
-    rm = path_length(x1, y1) / (2 * np.pi) / n
-    x, y = trochoid(px=np.tile(x1[::-1], m),
-                    py=np.tile(y1[::-1], m), rm=rm, rd=1.8 * rm)
-    fig.axes[2].plot(x, y)
+#     # Trochoid on Epitrochoid
+#     fig.add_subplot(2, 2, 3)
+#     x0, y0 = polygon(64, 1)
+#     fig.axes[2].plot(x0, y0)
+#     x1, y1 = ctrochoid(rc=1, rm=1 / 6, rd=0.8 * 1 /
+#                        6, num=1024, outer=False)
+#     fig.axes[2].plot(x1, y1)
+#     m = 6
+#     n = 12 / m  # num. rotation of the rolling circle.
+#     rm = path_length(x1, y1) / (2 * np.pi) / n
+#     x, y = trochoid(px=np.tile(x1[::-1], m),
+#                     py=np.tile(y1[::-1], m), rm=rm, rd=1.8 * rm)
+#     fig.axes[2].plot(x, y)
 
-    fig.axes[2].set_title('Trochoid on Epitrochoid')
-    fig.axes[2].set_aspect('equal', 'box')
+#     fig.axes[2].set_title('Trochoid on Epitrochoid')
+#     fig.axes[2].set_aspect('equal', 'box')
 
-    # Trochoid on Sine Curve
-    fig.add_subplot(2, 2, 4)
-    x = np.linspace(-1, 1, num=100)
-    y = np.sin(x)
-    fig.axes[3].plot(x, y)
-    xt, yt = trochoid(px=x, py=y, rm=0.1, rd=0.2)
-    fig.axes[3].plot(xt, yt)
-    fig.axes[3].set_title('Trochoid on Sine Curve')
+#     # Trochoid on Sine Curve
+#     fig.add_subplot(2, 2, 4)
+#     x = np.linspace(-1, 1, num=100)
+#     y = np.sin(x)
+#     fig.axes[3].plot(x, y)
+#     xt, yt = trochoid(px=x, py=y, rm=0.1, rd=0.2)
+#     fig.axes[3].plot(xt, yt)
+#     fig.axes[3].set_title('Trochoid on Sine Curve')
 
-    plt.show()
+#     plt.show()
